@@ -19,13 +19,13 @@ namespace MultiShop.Catalog.Services.ProductImageServices
             _mapper = mapper;
         }
 
-        public async Task CreateProductImage(CreateProductImageDto createProductImageDto)
+        public async Task CreateProductImageAsync(CreateProductImageDto createProductImageDto)
         {
             var value=_mapper.Map<ProductImage>(createProductImageDto);
             await _productImageCollection.InsertOneAsync(value);
         }
 
-        public async Task DeleteProductImage(string id)
+        public async Task DeleteProductImageAsync(string id)
         {
             await _productImageCollection.DeleteOneAsync(x=>x.ProductImageID==id);
         }
@@ -42,7 +42,7 @@ namespace MultiShop.Catalog.Services.ProductImageServices
             return _mapper.Map<GetByIdProductImageDto>(value);
         }
 
-        public async Task UpdateProductImage(UpdateProductImageDto updateProductImageDto)
+        public async Task UpdateProductImageAsync(UpdateProductImageDto updateProductImageDto)
         {
             var value=_mapper.Map<ProductImage>(updateProductImageDto);
             await _productImageCollection.FindOneAndReplaceAsync(x => x.ProductImageID == updateProductImageDto.ProductImageID, value);
