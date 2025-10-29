@@ -1,0 +1,13 @@
+﻿using MultiShop.Discount.Dtos;
+
+namespace MultiShop.Discount.Services
+{
+    public interface IDiscountService
+    {
+        Task<List<ResultDiscountCouponDto>> GetAllDiscountCouponsAsync();
+        Task<GetByIdDiscountCouponDto> GetDiscountCouponsAsync(int id);
+        Task CreateDiscountCouponAsync(CreateDiscountCouponDto createCouponDto);
+        Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateCouponDto);
+        Task DeleteDiscountCouponAsync(int id);
+    }
+}
